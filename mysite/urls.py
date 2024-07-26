@@ -1,4 +1,4 @@
-"""mysite1 URL Configuration
+"""mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
+import account
 from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls', namespace='blog')),
-    path('', views.post_list, name='post_list'),
-    path('account/', include('account.urls'))
-
+    path('account/', include('account.urls')),
 ]

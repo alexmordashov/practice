@@ -19,7 +19,11 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponse('Authenticated successfully')
+                    # return HttpResponse('Authenticated successfully')
+                    return render(request,
+                                  'account/dashboard.html',
+                                  {'section': 'dashboard'})
+
                 else:
                     return HttpResponse('Disabled account')
             else:
